@@ -27,6 +27,7 @@ Partial Class InputWindow
         Me.MaterialLabel1 = New MaterialSkin.Controls.MaterialLabel()
         Me.MaterialLabel2 = New MaterialSkin.Controls.MaterialLabel()
         Me.MaterialTextBox2 = New MaterialSkin.Controls.MaterialTextBox()
+        Me.MaterialCard1 = New MaterialSkin.Controls.MaterialCard()
         Me.SuspendLayout()
         '
         'MaterialButton1
@@ -36,7 +37,7 @@ Partial Class InputWindow
         Me.MaterialButton1.Depth = 0
         Me.MaterialButton1.HighEmphasis = True
         Me.MaterialButton1.Icon = Nothing
-        Me.MaterialButton1.Location = New System.Drawing.Point(266, 322)
+        Me.MaterialButton1.Location = New System.Drawing.Point(295, 335)
         Me.MaterialButton1.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.MaterialButton1.MouseState = MaterialSkin.MouseState.HOVER
         Me.MaterialButton1.Name = "MaterialButton1"
@@ -94,7 +95,7 @@ Partial Class InputWindow
         Me.MaterialTextBox2.AnimateReadOnly = False
         Me.MaterialTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.MaterialTextBox2.Depth = 0
-        Me.MaterialTextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        Me.MaterialTextBox2.Font = New System.Drawing.Font("Roboto", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
         Me.MaterialTextBox2.LeadingIcon = Nothing
         Me.MaterialTextBox2.Location = New System.Drawing.Point(53, 186)
         Me.MaterialTextBox2.MaxLength = 50
@@ -106,17 +107,31 @@ Partial Class InputWindow
         Me.MaterialTextBox2.Text = ""
         Me.MaterialTextBox2.TrailingIcon = Nothing
         '
-        'Form1
+        'MaterialCard1
+        '
+        Me.MaterialCard1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.MaterialCard1.Depth = 0
+        Me.MaterialCard1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.MaterialCard1.Location = New System.Drawing.Point(396, 77)
+        Me.MaterialCard1.Margin = New System.Windows.Forms.Padding(14)
+        Me.MaterialCard1.MouseState = MaterialSkin.MouseState.HOVER
+        Me.MaterialCard1.Name = "MaterialCard1"
+        Me.MaterialCard1.Padding = New System.Windows.Forms.Padding(14)
+        Me.MaterialCard1.Size = New System.Drawing.Size(200, 206)
+        Me.MaterialCard1.TabIndex = 5
+        '
+        'InputWindow
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.MaterialCard1)
         Me.Controls.Add(Me.MaterialLabel2)
         Me.Controls.Add(Me.MaterialTextBox2)
         Me.Controls.Add(Me.MaterialLabel1)
         Me.Controls.Add(Me.MaterialTextBox1)
         Me.Controls.Add(Me.MaterialButton1)
-        Me.Name = "Form1"
+        Me.Name = "InputWindow"
         Me.Text = "Form1"
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -128,4 +143,5 @@ Partial Class InputWindow
     Friend WithEvents MaterialLabel1 As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents MaterialLabel2 As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents MaterialTextBox2 As MaterialSkin.Controls.MaterialTextBox
+    Friend WithEvents MaterialCard1 As MaterialSkin.Controls.MaterialCard
 End Class
