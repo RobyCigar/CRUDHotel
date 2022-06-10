@@ -77,17 +77,25 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Kamar.vb" />
+    <Compile Include="TambahKamarWindow.Designer.vb">
+      <DependentUpon>TambahKamarWindow.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TambahKamarWindow.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SQLControl.vb" />
     <Compile Include="LoginWindow.Designer.vb">
       <DependentUpon>LoginWindow.vb</DependentUpon>
     </Compile>
     <Compile Include="LoginWindow.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InputWindow.vb">
+    <Compile Include="MainWindow.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InputWindow.Designer.vb">
-      <DependentUpon>InputWindow.vb</DependentUpon>
+    <Compile Include="MainWindow.Designer.vb">
+      <DependentUpon>MainWindow.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -105,10 +113,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="User.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="InputWindow.resx">
-      <DependentUpon>InputWindow.vb</DependentUpon>
+    <EmbeddedResource Include="MainWindow.resx">
+      <DependentUpon>MainWindow.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginWindow.resx">
       <DependentUpon>LoginWindow.vb</DependentUpon>
@@ -118,6 +127,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TambahKamarWindow.resx">
+      <DependentUpon>TambahKamarWindow.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
