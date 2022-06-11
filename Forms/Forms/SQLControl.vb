@@ -53,6 +53,33 @@ Public Class SQLControl
         End Try
     End Function
 
+    Public Function TambahKamar(id As String, tipe As String, harga As Integer, tersedia As Integer, jumlah As Integer) As Boolean
+        Try
+            SQLCON.Open()
+            SQLCMD = SQLCON.CreateCommand
+
+            With SQLCMD
+                .CommandType = CommandType.StoredProcedure
+                With .Parameters
+                    .Add(New SqlParameter("@id", id))
+                    .Add(New SqlParameter("@tipe", tipe))
+                    .Add(New SqlParameter("@harga", harga))
+                    .Add(New SqlParameter("@tersedia", tersedia))
+                    .Add(New SqlParameter("@jumlah", jumlah))
+                End With
+                .CommandText = "StoreKamar"
+                .ExecuteNonQuery()
+            End With
+
+            Return True
+        Catch ex As Exception
+            SetCheckConstraint(ex)
+            Return False
+        Finally
+            If SQLCON.State = ConnectionState.Open Then SQLCON.Close()
+        End Try
+    End Function
+
     Private Sub SetCheckConstraint(ex As Exception)
         Const regexPattern As String = ".*(CHK_[A-z!]{1,}).*"
         Dim regex As Regex = New Regex(regexPattern)

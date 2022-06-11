@@ -1,8 +1,10 @@
 ﻿Public Class Kamar
     Inherits SQLControl
     Private _id As String
-    Private _jenis As String
-    Private _dipesan As Boolean
+    Private _tipe As String
+    Private _harga As Integer
+    Private _jumlah As Integer
+    Private _tersedia As Integer
 
     Public Property ID() As String
         Get
@@ -13,21 +15,39 @@
         End Set
     End Property
 
-    Public Property Jenis() As String
+    Public Property Tipe() As String
         Get
-            Return _jenis
+            Return _tipe
         End Get
         Set(value As String)
-            _jenis = value
+            _tipe = value
         End Set
     End Property
 
-    Public Property Dipesan() As Boolean
+    Public Property Harga() As Integer
         Get
-            Return _dipesan
+            Return _harga
         End Get
-        Set(value As Boolean)
-            _dipesan = value
+        Set(value As Integer)
+            _harga = value
+        End Set
+    End Property
+
+    Public Property Jumlah() As Integer
+        Get
+            Return _jumlah
+        End Get
+        Set(value As String)
+            _jumlah = value
+        End Set
+    End Property
+
+    Public Property Tersedia() As Integer
+        Get
+            Return _tersedia
+        End Get
+        Set(value As Integer)
+            _tersedia = value
         End Set
     End Property
 End Class

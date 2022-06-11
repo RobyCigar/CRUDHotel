@@ -83,27 +83,17 @@ ON t.id_pemesan = p.id
 JOIN Transaksi_Kamar AS tk
 ON tk.id_transaksi = t.id
 
-GO
 
-CREATE PROCEDURE StoreKamar
-	@id VARCHAR(5) = NULL,
-	@tipe VARCHAR(20) = NULL,
-	@harga INTEGER = NULL,
-	@tersedia INTEGER = 0,
-	@jumlah INTEGER = 0
-AS
-BEGIN
-	INSERT INTO Kamar(id, tipe, harga, tersedia, jumlah) VALUES
-	(@id, @tipe, @harga, @tersedia, @jumlah)
-END
 
 GO
 
 EXEC storekmr
 	@id = 'K0003',
-	@tipe = 'Single Bed',
-	@harga = 1000000
-	@tersedia
+	@nama = 'Single Bed',
+	@harga = 1000000,
+	@tersedia = 1,
+	@jumlah = 10
+
 GO
 CREATE PROCEDURE join2tbl
 AS 
@@ -186,6 +176,19 @@ CREATE Procedure [dbo].[ValidateUserCredentials]
 @password varchar(50)
 AS
 BEGIN
+GO
+
+CREATE PROCEDURE StoreKamar
+	@id VARCHAR(5) = NULL,
+	@tipe VARCHAR(20) = NULL,
+	@harga INTEGER = NULL,
+	@tersedia INTEGER = 0,
+	@jumlah INTEGER = 0
+AS
+BEGIN
+	INSERT INTO Kamar(id, tipe, harga, tersedia, jumlah) VALUES
+	(@id, @tipe, @harga, @tersedia, @jumlah)
+END
 
 SELECT * FROM Users WHERE username = @username COLLATE SQL_Latin1_General_CP1_CS_AS AND password = @password COLLATE SQL_Latin1_General_CP1_CS_AS
 END
