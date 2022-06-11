@@ -77,6 +77,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EditKamarWindow.Designer.vb">
+      <DependentUpon>EditKamarWindow.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EditKamarWindow.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Kamar.vb" />
     <Compile Include="TambahKamarWindow.Designer.vb">
       <DependentUpon>TambahKamarWindow.vb</DependentUpon>
@@ -116,6 +122,9 @@
     <Compile Include="User.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="EditKamarWindow.resx">
+      <DependentUpon>EditKamarWindow.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.vb</DependentUpon>
     </EmbeddedResource>

@@ -37,7 +37,7 @@
         Get
             Return _jumlah
         End Get
-        Set(value As String)
+        Set(value As Integer)
             _jumlah = value
         End Set
     End Property
