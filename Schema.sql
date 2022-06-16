@@ -8,7 +8,9 @@ CREATE DATABASE CRUDHotel
 
 CREATE TABLE Users (
 	username VARCHAR(50) NOT NULL PRIMARY KEY,
-	password VARCHAR(50) NOT NULL
+	password VARCHAR(50) NOT NULL,
+	email VARCHAR(50) NOT NULL,
+	telp VARCHAR(15) NOT NULL
 )
 
 CREATE TABLE Pemesan (
@@ -39,8 +41,13 @@ CREATE TABLE Transaksi_Kamar (
 	id_kamar CHAR(5) NOT NULL FOREIGN KEY REFERENCES Kamar(id)
 )
 
- INSERT INTO Users(username, password) VALUES 
-('naruto', 'naruto');
+
+/*
+	Insert data things
+*/
+
+ INSERT INTO Users(username, password, email, telp) VALUES 
+('naruto', 'naruto', 'naruto@gmail.com', '0851234567');
 
 INSERT INTO Pemesan(ID, nama, email, telp) VALUES 
 ('P0002', 'Naruto', 'naruto@gmail.com', '085888888');
@@ -73,88 +80,131 @@ SELECT * FROM Transaksi
 SELECT * FROM Transaksi_Kamar
 
 
-SELECT * FROM Pemesan AS p 
-JOIN Transaksi AS t 
-ON t.id_pemesan = p.id
-
-SELECT * FROM Pemesan AS p 
-JOIN Transaksi AS t 
-ON t.id_pemesan = p.id
-JOIN Transaksi_Kamar AS tk
-ON tk.id_transaksi = t.id
-
-
+/*
+	Procedure things
+*/
 
 GO
-
-EXEC storekmr
-	@id = 'K0003',
-	@nama = 'Single Bed',
-	@harga = 1000000,
-	@tersedia = 1,
-	@jumlah = 10
-
-GO
-CREATE PROCEDURE join2tbl
-AS 
+CREATE Procedure [dbo].[ValidateUserCredentials]
+@username varchar(50),
+@password varchar(50)
+AS
 BEGIN
-	SELECT * FROM Pemesan AS p 
-	JOIN Transaksi AS t 
-	ON t.id_pemesan = p.id
+	SELECT * FROM Users WHERE username = @username COLLATE SQL_Latin1_General_CP1_CS_AS AND password = @password COLLATE SQL_Latin1_General_CP1_CS_AS
 END
 GO
 
-EXEC join2tbl
-
-GO
-CREATE PROCEDURE join3tbl
+CREATE PROCEDURE StoreKamar
+	@id VARCHAR(5) = NULL,
+	@tipe VARCHAR(20) = NULL,
+	@harga INTEGER = NULL,
+	@tersedia INTEGER = 0,
+	@jumlah INTEGER = 0
 AS
-	SELECT * FROM Pemesan AS p 
-	JOIN Transaksi AS t 
-	ON t.id_pemesan = p.id
-	JOIN Transaksi_Kamar AS tk
-	ON tk.id_transaksi = t.id
-END
-
-EXEC join3tbl;
-
-
-GO
-CREATE VIEW [cust] AS
-SELECT nama, email, telp
-FROM Pemesan
-
-SELECT * FROM [cust]
+BEGIN
+	INSERT INTO Kamar(id, tipe, harga, tersedia, jumlah) VALUES
+	(@id, @tipe, @harga, @tersedia, @jumlah)
 END
 GO
 
-CREATE VIEW [tampilkan_double_bed]
+CREATE PROCEDURE EditKamar
+	@id VARCHAR(5) = NULL,
+	@tipe VARCHAR(20) = NULL,
+	@harga INTEGER = NULL,
+	@tersedia INTEGER = 0,
+	@jumlah INTEGER = 0
 AS
-		SELECT *
-		FROM Kamar
-		WHERE tipe LIKE '%Double%';
+BEGIN
+	UPDATE Kamar 
+	SET
+	INTO Kamar(id, tipe, harga, tersedia, jumlah) VALUES
+	(@id, @tipe, @harga, @tersedia, @jumlah)
+END
 GO
 
-SELECT 
-    * 
-FROM 
-    tampilkan_double_bed
-
-
+CREATE Procedure [dbo].[GetAllKamar]
+AS
+SELECT * FROM Kamar
 GO
-CREATE PROCEDURE [dbo].[USP_UserRoles_Select]
+
+
+CREATE Procedure [dbo].[DeleteKamar]
+@id VARCHAR(5)
+AS
+	DELETE FROM Kamar WHERE id = @id
+GO
+
+
+
+CREATE Procedure [dbo].[GetAllUser]
+AS
+SELECT * FROM Users
+GO
+
+CREATE PROCEDURE [dbo].[AddUser]
 (
-    @Rolename VARCHAR(30) = ''
+	@username varchar(50),
+	@password varchar(50),
+	@email varchar(50),
+	@telp varchar(50)
 )
 AS
 BEGIN
-    Select ID,Name
-    FROM
-        AspNetRoles
-    WHERE
-        Name like  @Rolename +'%'
+	INSERT INTO Users (username, password, email, telp)
+	VALUES(@username, @password, @email, @telp)
+END
+
+GO
+CREATE Procedure [dbo].[DeleteUser]
+(@username varchar(50))
+AS
+BEGIN
+DELETE FROM Users WHERE username = @username
 END
 GO
+
+CREATE PROCEDURE [dbo].[UpdateUser]
+(
+	@username varchar(50),
+	@password varchar(50),
+	@email varchar(50),
+	@telp varchar(50),
+	@editusername varchar(50)
+)
+AS
+BEGIN
+	UPDATE Users 
+	SET username = @username, password = @password, email = @email, telp = @telp
+	WHERE username = @editusername
+END
+
+/* 
+	Drop procedure things 
+*/
+
+DROP PROCEDURE [ValidateUserCredentials];  
+GO
+DROP PROCEDURE [StoreKamar];  
+GO
+DROP PROCEDURE [GetAllKamar];  
+GO
+DROP PROCEDURE [DeleteKamar];  
+GO
+DROP PROCEDURE [UpdateKamar];  
+GO
+
+DROP PROCEDURE [StoreUser]
+DROP PROCEDURE [GetAllUser]
+/* 
+	Drop all tables
+*/
+
+DROP TABLE Users
+SELECT * FROM Pemesan
+SELECT * FROM Kamar
+SELECT * FROM Transaksi
+SELECT * FROM Transaksi_Kamar
+
 
 EXEC sp_msforeachtable "ALTER TABLE ? NOCHECK CONSTRAINT all"
 
@@ -169,35 +219,3 @@ WHERE  t.type = 'U'
 Exec sp_executesql @sql
 
 DROP TABLE Kamar
-
-GO
-CREATE Procedure [dbo].[ValidateUserCredentials]
-@username varchar(50),
-@password varchar(50)
-AS
-BEGIN
-GO
-
-CREATE PROCEDURE StoreKamar
-	@id VARCHAR(5) = NULL,
-	@tipe VARCHAR(20) = NULL,
-	@harga INTEGER = NULL,
-	@tersedia INTEGER = 0,
-	@jumlah INTEGER = 0
-AS
-BEGIN
-	INSERT INTO Kamar(id, tipe, harga, tersedia, jumlah) VALUES
-	(@id, @tipe, @harga, @tersedia, @jumlah)
-END
-
-SELECT * FROM Users WHERE username = @username COLLATE SQL_Latin1_General_CP1_CS_AS AND password = @password COLLATE SQL_Latin1_General_CP1_CS_AS
-END
-
-GO
-CREATE Procedure [dbo].[GetAllKamar]
-AS
-SELECT * FROM Kamar
-GO
-
-DROP PROCEDURE [ValidateUserCredentials];  
-GO  

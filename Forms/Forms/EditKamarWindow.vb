@@ -19,9 +19,6 @@
         Me.Jumlah.Value = _editKamar.Jumlah
         Me.Tersedia.Value = _editKamar.Tersedia
 
-        MsgBox(_editKamar.Tipe)
-        MsgBox(_editKamar.ID)
-        MsgBox(_editKamar.Harga)
         With _editKamar
             .ID = Me.ID.Text
             .Tipe = Me.TipeKamar.Text
@@ -32,6 +29,16 @@
     End Sub
 
     Private Sub EditKamarWindow_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Dim id = Me.ID.Text
+        Dim tipe = Me.TipeKamar.Text
+        Dim harga = Me.Harga.Value
+        Dim jumlah = Me.Jumlah.Value
+        Dim tersedia = Me.Tersedia.Value
+
 
     End Sub
 End Class
