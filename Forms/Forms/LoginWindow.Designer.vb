@@ -62,7 +62,6 @@ Partial Class LoginWindow
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(153, 20)
         Me.TextBox2.TabIndex = 8
-        ' untuk password
         Me.TextBox2.UseSystemPasswordChar = True
         '
         'Label2
@@ -92,6 +91,7 @@ Partial Class LoginWindow
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.Thistle
         Me.ClientSize = New System.Drawing.Size(684, 387)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "LoginWindow"

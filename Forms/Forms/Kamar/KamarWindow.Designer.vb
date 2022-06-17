@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class MainWindow
+Partial Class KamarWindow
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -31,12 +31,13 @@ Partial Class MainWindow
         '
         'Button1
         '
+        Me.Button1.BackColor = System.Drawing.Color.Lime
         Me.Button1.Location = New System.Drawing.Point(572, 206)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(125, 38)
         Me.Button1.TabIndex = 0
         Me.Button1.Text = "Edit Kamar"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'DataGridView1
         '
@@ -49,32 +50,35 @@ Partial Class MainWindow
         '
         'Button2
         '
+        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Button2.Location = New System.Drawing.Point(572, 139)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(125, 38)
         Me.Button2.TabIndex = 2
         Me.Button2.Text = "Tambah Kamar"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.Button2.UseVisualStyleBackColor = False
         '
         'Button3
         '
+        Me.Button3.BackColor = System.Drawing.Color.Red
         Me.Button3.Location = New System.Drawing.Point(572, 275)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(125, 38)
         Me.Button3.TabIndex = 3
         Me.Button3.Text = "Delete Kamar"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.Button3.UseVisualStyleBackColor = False
         '
-        'MainWindow
+        'KamarWindow
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.Thistle
         Me.ClientSize = New System.Drawing.Size(733, 450)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Button1)
-        Me.Name = "MainWindow"
+        Me.Name = "KamarWindow"
         Me.Text = "Form1"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

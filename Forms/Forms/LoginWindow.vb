@@ -1,6 +1,6 @@
 ﻿Public Class LoginWindow
     Private SQL = New SQLControl()
-    Private MainWindow = New MainWindow()
+    Private NavigationWindow = New NavigationWindow()
 
     Private Sub LoginWindow_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -20,7 +20,7 @@
 
         If SQL.IsAuthenticated(username, password) Then
             Me.Hide()
-            MainWindow.ShowDialog()
+            NavigationWindow.ShowDialog()
             Me.Close()
         Else
             MsgBox("Username atau password salah wkwk")

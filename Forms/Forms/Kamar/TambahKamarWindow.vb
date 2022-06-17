@@ -14,17 +14,22 @@
 
         If IsAdded Then
             MsgBox("Oke, Kamar Berhasil Ditambahkan :D")
+
+            Dim Main = New KamarWindow()
             Me.Hide()
-            MainWindow.ShowDialog()
+            Main.ShowDialog()
             Me.Close()
         Else
             MsgBox("Yh, Kamar Gagal Ditambahkan :(")
         End If
     End Sub
 
+    ' cancel btn
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+        Dim Main = New KamarWindow()
         Me.Hide()
-        MainWindow.ShowDialog()
+        Main.ShowDialog()
         Me.Close()
     End Sub
 End Class

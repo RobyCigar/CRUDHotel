@@ -1,4 +1,4 @@
-﻿Public Class MainWindow
+﻿Public Class KamarWindow
     Private SQL = New SQLControl()
 
     Public Sub New()
@@ -20,11 +20,14 @@
         If Me.DataGridView1.SelectedRows.Count = 1 Then
             Dim editKamar As New Kamar
             SetUserPropertiesWithDataGrid(editKamar)
+
             Dim EditForm As New EditKamarWindow(editKamar)
 
+            Me.Hide()
             EditForm.ShowDialog()
+            Me.Close()
         Else
-            MsgBox("Pilih data yg mau di edit")
+            MsgBox("Pilih 1 baris yg mau di edit")
         End If
     End Sub
 
@@ -38,10 +41,12 @@
         End With
     End Sub
 
+    ' trigger tambah
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim TambahKamar = New TambahKamarWindow()
         Me.Hide()
+        TambahKamar.ShowDialog()
         Me.Close()
-        TambahKamarWindow.ShowDialog()
     End Sub
 
     Private Sub MainWindow_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -51,5 +56,26 @@
     ' Trigger edit btn
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         DisplayEditModeForm()
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Dim selectedId = Me.DataGridView1.SelectedRows.Item(0).Cells(0).Value
+        If Me.DataGridView1.SelectedRows.Count = 1 Then
+            MsgBox("Yakin mau hapus data ini?")
+            Dim isDeleted As Boolean = SQL.DeleteKamar(selectedId)
+            If isDeleted Then
+                MsgBox("Berhasil dihapus")
+
+                Dim Main = New KamarWindow()
+                Me.Hide()
+                Main.ShowDialog()
+                Me.Close()
+            Else
+                MsgBox("Gagal Dihapus")
+            End If
+        Else
+            MsgBox("Pilih satu aja yg mau dihapus")
+        End If
+
     End Sub
 End Class

@@ -77,17 +77,35 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EditKamarWindow.Designer.vb">
+    <Compile Include="Kamar\EditKamarWindow.Designer.vb">
       <DependentUpon>EditKamarWindow.vb</DependentUpon>
     </Compile>
-    <Compile Include="EditKamarWindow.vb">
+    <Compile Include="Kamar\EditKamarWindow.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\EditUserWindow.Designer.vb">
+      <DependentUpon>EditUserWindow.vb</DependentUpon>
+    </Compile>
+    <Compile Include="User\EditUserWindow.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\TambahUserWindow.Designer.vb">
+      <DependentUpon>TambahUserWindow.vb</DependentUpon>
+    </Compile>
+    <Compile Include="User\TambahUserWindow.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Kamar.vb" />
-    <Compile Include="TambahKamarWindow.Designer.vb">
+    <Compile Include="NavigationWindow.Designer.vb">
+      <DependentUpon>NavigationWindow.vb</DependentUpon>
+    </Compile>
+    <Compile Include="NavigationWindow.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kamar\TambahKamarWindow.Designer.vb">
       <DependentUpon>TambahKamarWindow.vb</DependentUpon>
     </Compile>
-    <Compile Include="TambahKamarWindow.vb">
+    <Compile Include="Kamar\TambahKamarWindow.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SQLControl.vb" />
@@ -97,11 +115,11 @@
     <Compile Include="LoginWindow.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainWindow.vb">
+    <Compile Include="Kamar\KamarWindow.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainWindow.Designer.vb">
-      <DependentUpon>MainWindow.vb</DependentUpon>
+    <Compile Include="Kamar\KamarWindow.Designer.vb">
+      <DependentUpon>KamarWindow.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -120,13 +138,19 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="User.vb" />
+    <Compile Include="User\UserWindow.Designer.vb">
+      <DependentUpon>UserWindow.vb</DependentUpon>
+    </Compile>
+    <Compile Include="User\UserWindow.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="EditKamarWindow.resx">
+    <EmbeddedResource Include="Kamar\EditKamarWindow.resx">
       <DependentUpon>EditKamarWindow.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainWindow.resx">
-      <DependentUpon>MainWindow.vb</DependentUpon>
+    <EmbeddedResource Include="Kamar\KamarWindow.resx">
+      <DependentUpon>KamarWindow.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginWindow.resx">
       <DependentUpon>LoginWindow.vb</DependentUpon>
@@ -137,8 +161,20 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="TambahKamarWindow.resx">
+    <EmbeddedResource Include="NavigationWindow.resx">
+      <DependentUpon>NavigationWindow.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kamar\TambahKamarWindow.resx">
       <DependentUpon>TambahKamarWindow.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\EditUserWindow.resx">
+      <DependentUpon>EditUserWindow.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\TambahUserWindow.resx">
+      <DependentUpon>TambahUserWindow.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\UserWindow.resx">
+      <DependentUpon>UserWindow.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -152,6 +188,9 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

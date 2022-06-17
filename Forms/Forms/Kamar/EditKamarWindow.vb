@@ -1,5 +1,5 @@
 ﻿Public Class EditKamarWindow
-
+    Private SQL = New SQLControl()
     Private _editKamar As New Kamar
 
     Public Sub New(editKamar As Kamar)
@@ -39,6 +39,26 @@
         Dim jumlah = Me.Jumlah.Value
         Dim tersedia = Me.Tersedia.Value
 
+        MsgBox("Yakin mau ngedit kamar ini? :|")
 
+        Dim IsEdited As Boolean = SQL.EditKamar(id, tipe, harga, tersedia, jumlah)
+
+        If IsEdited Then
+            MsgBox("Oke, Kamar Berhasil Diedit XD")
+
+            Dim Main = New KamarWindow()
+            Me.Hide()
+            Main.ShowDialog()
+            Me.Close()
+        Else
+            MsgBox("Yh, Kamar Gagal Diedit :(")
+        End If
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim Main = New KamarWindow()
+        Me.Hide()
+        Main.ShowDialog()
+        Me.Close()
     End Sub
 End Class

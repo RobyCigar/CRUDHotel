@@ -84,6 +84,8 @@ SELECT * FROM Transaksi_Kamar
 	Procedure things
 */
 
+/* Kamar procedure */
+
 GO
 CREATE Procedure [dbo].[ValidateUserCredentials]
 @username varchar(50),
@@ -94,7 +96,12 @@ BEGIN
 END
 GO
 
-CREATE PROCEDURE StoreKamar
+CREATE Procedure [dbo].[GetAllKamar]
+AS
+SELECT * FROM Kamar
+GO
+
+CREATE PROCEDURE AddKamar
 	@id VARCHAR(5) = NULL,
 	@tipe VARCHAR(20) = NULL,
 	@harga INTEGER = NULL,
@@ -116,17 +123,9 @@ CREATE PROCEDURE EditKamar
 AS
 BEGIN
 	UPDATE Kamar 
-	SET
-	INTO Kamar(id, tipe, harga, tersedia, jumlah) VALUES
-	(@id, @tipe, @harga, @tersedia, @jumlah)
+	SET tipe = @tipe, harga = @harga, tersedia = @tersedia, jumlah = @jumlah WHERE id = @id
 END
 GO
-
-CREATE Procedure [dbo].[GetAllKamar]
-AS
-SELECT * FROM Kamar
-GO
-
 
 CREATE Procedure [dbo].[DeleteKamar]
 @id VARCHAR(5)
@@ -135,6 +134,7 @@ AS
 GO
 
 
+/* User procedure */
 
 CREATE Procedure [dbo].[GetAllUser]
 AS
@@ -155,6 +155,7 @@ BEGIN
 END
 
 GO
+
 CREATE Procedure [dbo].[DeleteUser]
 (@username varchar(50))
 AS
@@ -163,19 +164,18 @@ DELETE FROM Users WHERE username = @username
 END
 GO
 
-CREATE PROCEDURE [dbo].[UpdateUser]
+CREATE PROCEDURE [dbo].[EditUser]
 (
 	@username varchar(50),
 	@password varchar(50),
 	@email varchar(50),
-	@telp varchar(50),
-	@editusername varchar(50)
+	@telp varchar(50)
 )
 AS
 BEGIN
 	UPDATE Users 
 	SET username = @username, password = @password, email = @email, telp = @telp
-	WHERE username = @editusername
+	WHERE username = @username
 END
 
 /* 
@@ -183,18 +183,16 @@ END
 */
 
 DROP PROCEDURE [ValidateUserCredentials];  
-GO
-DROP PROCEDURE [StoreKamar];  
-GO
-DROP PROCEDURE [GetAllKamar];  
-GO
+DROP PROCEDURE [AddKamar];
+DROP PROCEDURE [GetAllKamar];
 DROP PROCEDURE [DeleteKamar];  
-GO
-DROP PROCEDURE [UpdateKamar];  
-GO
+DROP PROCEDURE [EditKamar];
 
-DROP PROCEDURE [StoreUser]
+DROP PROCEDURE [AddUser]
 DROP PROCEDURE [GetAllUser]
+DROP PROCEDURE [DeleteUser]
+DROP PROCEDURE [EditUser]
+
 /* 
 	Drop all tables
 */
