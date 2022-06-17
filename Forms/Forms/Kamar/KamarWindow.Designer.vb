@@ -26,13 +26,14 @@ Partial Class KamarWindow
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.Color.Lime
-        Me.Button1.Location = New System.Drawing.Point(572, 206)
+        Me.Button1.Location = New System.Drawing.Point(580, 121)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(125, 38)
         Me.Button1.TabIndex = 0
@@ -51,7 +52,7 @@ Partial Class KamarWindow
         'Button2
         '
         Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Button2.Location = New System.Drawing.Point(572, 139)
+        Me.Button2.Location = New System.Drawing.Point(580, 54)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(125, 38)
         Me.Button2.TabIndex = 2
@@ -61,12 +62,22 @@ Partial Class KamarWindow
         'Button3
         '
         Me.Button3.BackColor = System.Drawing.Color.Red
-        Me.Button3.Location = New System.Drawing.Point(572, 275)
+        Me.Button3.Location = New System.Drawing.Point(580, 190)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(125, 38)
         Me.Button3.TabIndex = 3
         Me.Button3.Text = "Delete Kamar"
         Me.Button3.UseVisualStyleBackColor = False
+        '
+        'Button4
+        '
+        Me.Button4.BackColor = System.Drawing.Color.White
+        Me.Button4.Location = New System.Drawing.Point(580, 359)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(125, 38)
+        Me.Button4.TabIndex = 4
+        Me.Button4.Text = "Kembali"
+        Me.Button4.UseVisualStyleBackColor = False
         '
         'KamarWindow
         '
@@ -74,6 +85,7 @@ Partial Class KamarWindow
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Thistle
         Me.ClientSize = New System.Drawing.Size(733, 450)
+        Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.DataGridView1)
@@ -89,4 +101,5 @@ Partial Class KamarWindow
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Button2 As Button
     Friend WithEvents Button3 As Button
+    Friend WithEvents Button4 As Button
 End Class

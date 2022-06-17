@@ -56,9 +56,13 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim Main = New KamarWindow()
-        Me.Hide()
-        Main.ShowDialog()
-        Me.Close()
+        Dim result As DialogResult = MessageBox.Show("Keluar?", "Yakin mau keluar?", MessageBoxButtons.YesNo)
+        If result = DialogResult.Yes Then
+            Dim Main = New KamarWindow()
+            Me.Hide()
+            Main.ShowDialog()
+            Me.Close()
+        End If
+
     End Sub
 End Class

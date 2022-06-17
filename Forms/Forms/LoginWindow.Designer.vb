@@ -33,7 +33,7 @@ Partial Class LoginWindow
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(105, 206)
+        Me.Button3.Location = New System.Drawing.Point(105, 232)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(100, 33)
         Me.Button3.TabIndex = 4
@@ -43,7 +43,7 @@ Partial Class LoginWindow
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(79, 69)
+        Me.Label1.Location = New System.Drawing.Point(79, 78)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(55, 13)
         Me.Label1.TabIndex = 5
@@ -51,14 +51,14 @@ Partial Class LoginWindow
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(82, 85)
+        Me.TextBox1.Location = New System.Drawing.Point(82, 94)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(153, 20)
         Me.TextBox1.TabIndex = 6
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(82, 146)
+        Me.TextBox2.Location = New System.Drawing.Point(82, 164)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(153, 20)
         Me.TextBox2.TabIndex = 8
@@ -67,7 +67,7 @@ Partial Class LoginWindow
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(79, 130)
+        Me.Label2.Location = New System.Drawing.Point(79, 148)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(53, 13)
         Me.Label2.TabIndex = 7

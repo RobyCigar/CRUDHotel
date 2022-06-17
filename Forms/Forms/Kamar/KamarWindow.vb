@@ -58,24 +58,36 @@
         DisplayEditModeForm()
     End Sub
 
+    ' Trigger delete btn
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        Dim selectedId = Me.DataGridView1.SelectedRows.Item(0).Cells(0).Value
         If Me.DataGridView1.SelectedRows.Count = 1 Then
-            MsgBox("Yakin mau hapus data ini?")
-            Dim isDeleted As Boolean = SQL.DeleteKamar(selectedId)
-            If isDeleted Then
-                MsgBox("Berhasil dihapus")
+            Dim selectedId = Me.DataGridView1.SelectedRows.Item(0).Cells(0).Value
+            If Me.DataGridView1.SelectedRows.Count = 1 Then
+                MsgBox("Yakin mau hapus data ini?")
+                Dim isDeleted As Boolean = SQL.DeleteKamar(selectedId)
+                If isDeleted Then
+                    MsgBox("Berhasil dihapus")
 
-                Dim Main = New KamarWindow()
-                Me.Hide()
-                Main.ShowDialog()
-                Me.Close()
+                    Dim Main = New KamarWindow()
+                    Me.Hide()
+                    Main.ShowDialog()
+                    Me.Close()
+                Else
+                    MsgBox("Gagal Dihapus")
+                End If
             Else
-                MsgBox("Gagal Dihapus")
+                MsgBox("Pilih satu aja yg mau dihapus")
             End If
         Else
-            MsgBox("Pilih satu aja yg mau dihapus")
+            MsgBox("Pilih 1 baris yg mau dihapus")
         End If
 
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Dim NavigationWindow = New NavigationWindow()
+        Me.Hide()
+        NavigationWindow.ShowDialog()
+        Me.Close()
     End Sub
 End Class
